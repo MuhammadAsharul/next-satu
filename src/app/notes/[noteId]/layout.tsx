@@ -2,22 +2,19 @@
 function getRandomItem(arr: string[]) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-
-export default function SectionDetail({
-  params,
-}: {
-  params: {
-    noteId: String;
-    sectionId: String;
-  };
-}) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const item = getRandomItem(["", "ikan"]);
   if (item == "") {
     throw new Error("Item is Empty");
   }
   return (
-    <h4>
-      Node {params.noteId} Section {params.sectionId}
-    </h4>
+    <>
+      <div className="">layout note</div>
+      {children}
+    </>
   );
 }
